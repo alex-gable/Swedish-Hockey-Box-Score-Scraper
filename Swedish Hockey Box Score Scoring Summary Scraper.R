@@ -19,8 +19,9 @@ get_schedule <- function(league, season, ..., progress = TRUE) {
     
     if (league == "SHL") {
       
-      if (season == "2018-19") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/9171"}
-      
+      if (season == "2019-20") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/10371"}
+
+      else if (season == "2018-19") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/9171"}
       else if (season == "2017-18") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/8121"}
       else if (season == "2016-17") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/7132"}
       else if (season == "2015-16") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/6052"}
@@ -43,8 +44,9 @@ get_schedule <- function(league, season, ..., progress = TRUE) {
     
     else if (league == "Allsvenskan") {
       
-      if (season == "2018-19") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/9168"}
+      if (season == "2019-20") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/10333"}
       
+      else if (season == "2018-19") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/9168"}
       else if (season == "2017-18") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/8122"}
       else if (season == "2016-17") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/7157"}
       else if (season == "2015-16") {url <- "http://stats.swehockey.se/ScheduleAndResults/Schedule/6053"}
@@ -62,7 +64,15 @@ get_schedule <- function(league, season, ..., progress = TRUE) {
     
     else if (league == "SuperElit") {
       
-      if (season == "2018-19") {
+      if (season == "2019-20") {
+        
+        url <- c(
+          url_norra = "http://stats.swehockey.se/ScheduleAndResults/Schedule/10338",
+          url_sodra = "http://stats.swehockey.se/ScheduleAndResults/Schedule/10339")
+        
+      }
+
+      else if (season == "2018-19") {
         
         url <- c(
           url_norra = "http://stats.swehockey.se/ScheduleAndResults/Schedule/9169",
@@ -183,7 +193,7 @@ get_schedule <- function(league, season, ..., progress = TRUE) {
 ## Get URLs for SHL, Allsvenskan, and SuperElit for the past 2 years
 ## Pick any season/league combos you want
 ## Leagues must be spelled exactly: SHL or Allsvenskan or SuperElit
-games <- get_schedule(c("SHL", "Allsvenskan", "SuperElit"), c("2018-19", "2017-18"))
+games <- get_schedule(c("SHL", "Allsvenskan", "SuperElit"), c("2019-20", "2018-19", "2017-18"))
 
 ## This function gets the box score data using the URLs acquired from get_schedule() 
 get_box_score <- function(..., progress = TRUE) {
